@@ -1,0 +1,765 @@
+/*GLOBAL CSS*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f6fb;
+  color: #333;
+}
+
+/* DASHBOARD LAYOUT */
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  width: 250px;
+  background-color: #172554;
+  color: white;
+  padding: 25px 20px;
+}
+
+.logo {
+  margin-bottom: 40px;
+}
+
+.logo h2 {
+  font-size: 25px;
+}
+
+.logo span {
+  color: #60a5fa;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu-item {
+  text-decoration: none;
+  color: #cbd5e1;
+  padding: 14px 15px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.menu-item:hover,
+.menu-item.active {
+  background-color: #2563eb;
+  color: white;
+}
+
+/* MAIN CONTENT */
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+  min-width: 0;
+}
+
+/* NAVBAR AND PROFILE */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.navbar h2 {
+  font-size: 28px;
+  margin-bottom: 7px;
+}
+
+.navbar p {
+  color: #777;
+  font-size: 14px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: bold;
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-icon {
+  width: 42px;
+  height: 42px;
+  background-color: #2563eb;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+/* Profile Dropdown */
+
+.profile-dropdown {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  width: 200px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+}
+
+.profile-dropdown[hidden] {
+  display: none !important;
+}
+
+.admin-name {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.profile-dropdown hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin-bottom: 10px;
+}
+
+.profile-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.profile-dropdown button:hover {
+  background-color: #f3f4f6;
+}
+
+/* DASHBOARD CARDS */
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-size: 15px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.card h1 {
+  font-size: 32px;
+  color: #2563eb;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 13px;
+  color: #999;
+}
+
+/* ADD STUDENT FORM */
+
+.add-student {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.add-student h2 {
+  font-size: 21px;
+  margin-bottom: 25px;
+}
+
+#studentForm {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  outline: none;
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #2563eb;
+}
+
+/* Form Buttons */
+
+.form-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.form-buttons button {
+  width: auto;
+  min-width: 110px;
+  padding: 10px 18px;
+  margin: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.submit-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  min-width: 160px;
+  padding: 13px 25px !important;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.submit-btn:hover {
+  background-color: #1d4ed8;
+}
+
+#cancelEditBtn {
+  background-color: #6b7280;
+  color: white;
+  border: none;
+  min-width: 130px;
+  padding: 13px 25px !important;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#cancelEditBtn:hover {
+  background-color: #4b5563;
+}
+
+#cancelEditBtn[hidden] {
+  display: none !important;
+}
+
+#studentForm .form-buttons {
+  grid-column: 1 / -1;
+}
+
+/* STUDENT LIST AND TABLE */
+
+.recent-students {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.recent-students h2 {
+  font-size: 21px;
+  margin-bottom: 15px;
+}
+
+.recent-students p {
+  color: #888;
+  font-size: 14px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+#studentCount {
+  background-color: #dbeafe;
+  color: #2563eb;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 650px;
+}
+
+thead {
+  background-color: #f1f5f9;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+th {
+  color: #555;
+  font-weight: bold;
+}
+
+td {
+  color: #666;
+}
+
+/* Student Status */
+
+.status-active {
+  background-color: #dcfce7;
+  color: #15803d;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status-inactive {
+  background-color: #fee2e2;
+  color: #dc2626;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.recent-students table td select {
+  padding: 7px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #374151;
+  cursor: pointer;
+  outline: none;
+}
+
+.recent-students table td select:focus {
+  border-color: #2563eb;
+}
+
+/* Edit and Delete Buttons */
+
+.edit-btn,
+.delete-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 3px;
+}
+
+.edit-btn {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.delete-btn {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+/* ==============================
+   SEARCH AND FILTER
+============================== */
+
+.student-controls {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 2fr)
+    repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  min-width: 0;
+}
+
+.student-controls input,
+.student-controls select {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  background-color: white;
+}
+
+.student-controls input:focus,
+.student-controls select:focus {
+  border-color: #2563eb;
+}
+
+/* COURSES SECTION */
+
+.courses-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.course-card {
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.course-card h3 {
+  margin-bottom: 10px;
+  color: #2563eb;
+}
+
+.course-card p {
+  color: #666;
+}
+
+/* SETTINGS SECTION */
+
+.settings-card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.setting-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+/* DARK MODE */
+
+body.dark-mode {
+  background-color: #111827;
+  color: #f9fafb;
+}
+
+body.dark-mode .main-content {
+  background-color: #111827;
+}
+
+body.dark-mode .dashboard-cards .card,
+body.dark-mode .add-student,
+body.dark-mode .recent-students,
+body.dark-mode .courses-section,
+body.dark-mode .settings-section,
+body.dark-mode .settings-card {
+  background-color: #1f2937;
+  color: #f9fafb;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode label {
+  color: #f9fafb;
+}
+
+body.dark-mode table {
+  color: #f9fafb;
+}
+
+body.dark-mode th {
+  background-color: #374151;
+}
+
+body.dark-mode td {
+  border-color: #374151;
+}
+
+body.dark-mode input,
+body.dark-mode select {
+  background-color: #374151;
+  color: #ffffff;
+  border-color: #4b5563;
+}
+
+body.dark-mode .profile-dropdown {
+  background-color: #1f2937;
+  border-color: #374151;
+}
+
+body.dark-mode .profile-dropdown button {
+  color: #ffffff;
+}
+
+body.dark-mode .profile-dropdown button:hover {
+  background-color: #374151;
+}
+
+body.dark-mode .recent-students table td select {
+  background-color: #374151;
+  color: #ffffff;
+  border-color: #4b5563;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+  .dashboard-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  /* Sidebar */
+
+  .sidebar {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .logo {
+    margin-bottom: 15px;
+  }
+
+  .sidebar-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .menu-item {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  /* Main Content */
+
+  .main-content {
+    width: 100%;
+    padding: 15px;
+  }
+
+  /* Navbar */
+
+  .navbar {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+
+  .navbar h2 {
+    font-size: 22px;
+  }
+
+  .profile {
+    font-size: 13px;
+  }
+
+  /* Dashboard Cards */
+
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  /* Add Student Form */
+
+  .add-student {
+    padding: 18px;
+  }
+
+  #studentForm {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .form-buttons {
+    flex-wrap: wrap;
+  }
+
+  /* Students Section */
+
+  .recent-students {
+    padding: 15px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .section-header h2 {
+    font-size: 18px;
+  }
+
+  /* Search and Filters */
+
+  .student-controls {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .student-controls input,
+  .student-controls select {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Table */
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 650px;
+  }
+}
+
+
+/* ==============================
+   DASHBOARD RECENT STUDENTS
+============================== */
+
+#dashboard .recent-students {
+    background: #ffffff;
+    padding: 25px;
+    margin-top: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+#dashboard .recent-students h2 {
+    font-size: 22px;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+#dashboard .recent-students > p {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+#dashboard .recent-students .table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+#dashboard .recent-students table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+}
+
+#dashboard .recent-students th {
+    background: #f8fafc;
+    color: #475569;
+    font-weight: 600;
+}
+
+#dashboard .recent-students th,
+#dashboard .recent-students td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+#dashboard .recent-students td {
+    color: #4b5563;
+}
+
+#dashboard .recent-students tr:hover {
+    background: #f8fafc;
+}
+
+
+/* ==============================
+   RECENT STUDENTS STATUS BADGES
+============================== */
+
+#dashboard .status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#dashboard .status-badge.active {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+#dashboard .status-badge.inactive {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
